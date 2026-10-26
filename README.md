@@ -23,7 +23,7 @@
 <img width="1920" height="1094" alt="dashboard" src="https://github.com/user-attachments/assets/b0a8cc25-90c0-435b-a851-97a8123e1e25" />
 
 ## Структура проекта
-- "Olist-Analysist/SQL/" — SQL-скрипты.
+- "Olist-Analysist/SQL/" — CSV-файлы с результатами SQL-запросов (выгрузки).
 - "Olist-Analysist/queries.md" — описание всех запросов.
 - "Olist-Analysist/dashboard.png" — скриншот дашборда.
 - "Olist-Analysist/Анализ продаж Olist.pbix" — исходный файл Power BI.
