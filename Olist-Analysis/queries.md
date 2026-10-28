@@ -17,7 +17,7 @@ from a
 where  order_status = 'delivered'
 group by product_category_name_english
 order by sum desc
-limit 10;`` ``` ``
+limit 10; 
 
 Так же написал более читаемый вариант запроса:
 ```sql
