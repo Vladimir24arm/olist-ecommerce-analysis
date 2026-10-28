@@ -18,7 +18,7 @@ where  order_status = 'delivered'
 group by product_category_name_english
 order by sum desc
 limit 10; 
-
+```
 Так же написал более читаемый вариант запроса:
 ```sql
  select pct.product_category_name_english, sum(oi.price) as total, oo.order_status
@@ -29,7 +29,7 @@ limit 10;
  where oo.order_status = 'delivered'
  group by pct.product_category_name_english, oo.order_status
  order by total desc;
-
+```
 2) Средняя цена позиции по каждому заказу
  
 Бизнес-вопрос: Сколько в среднем стоит одна позиция в каждом заказе?
@@ -42,7 +42,7 @@ select count(*) as cnt,oi.order_id, round(avg(oi.price),2) as summ
  where oo.order_status = 'delivered'
  group by oi.order_id
  order by summ desc;
-
+```
 
 3) Топ-10 штатов по выручке
 
@@ -57,7 +57,7 @@ select count(*) as cnt,oi.order_id, round(avg(oi.price),2) as summ
  group by oc.customer_state 
  order by total desc
  limit 10;
-
+```
 4) Динамика выручки по месяцам (базовая)
 
 Бизнес-вопрос: Как менялась выручка по месяцам? В какие месяцы были пики продаж?
@@ -71,7 +71,7 @@ select count(*) as cnt,oi.order_id, round(avg(oi.price),2) as summ
  where oo.order_status = 'delivered'
  group by month,year
  order by total desc;
-
+```
 
 5) Динамика выручки с расчетом разницы (LAG)
  
@@ -89,7 +89,7 @@ select count(*) as cnt,oi.order_id, round(avg(oi.price),2) as summ
  from a
  where year > 2016
  order by year, month;
-
+```
 6) Влияние задержки доставки на оценку
 
 Бизнес-вопрос: Правда ли, что если заказ опаздывает, клиенты ставят более низкие оценки?
@@ -104,7 +104,7 @@ where oo.order_status = 'delivered'
 and oo.order_delivered_customer_date is not null
 and oo.order_estimated_delivery_date is not null
 group by delivery_status;
-
+```
 7) Процент отмененных заказов по месяцам
 
 Бизнес-вопрос: В каком месяце был самый высокий процент отмен?
@@ -118,7 +118,7 @@ from olist_orders
 where extract(year from order_purchase_timestamp) > 2016
 group by year, month
 order by year, month asc;
-
+```
 8) Распределение выручки по способам оплаты
 
 Бизнес-вопрос: Каким способом клиенты платят чаще всего и какой способ приносит больше всего денег?
@@ -131,7 +131,7 @@ join olist_orders o on p.order_id = o.order_id
 where o.order_status = 'delivered'
 group by p.payment_type
 order by total_payments desc;
-
+```
 
 
 
