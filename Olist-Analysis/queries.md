@@ -1,9 +1,10 @@
+```sql
 1)Топ 10 категорий по выручке.
 
 Бизнес-вопрос: Какие категории товаров приносят больше всего денег?
 Что делает: Соединяет 4 таблицы, фильтрует доставленные заказы, считает сумму выручки и количество позиций по каждой категории, выводит топ-10.
 Использовал функции WITH, JOIN (4 таблицы), WHERE, SUM, COUNT, GROUP BY, ORDER BY, LIMIT:
-```sql
+
 with a as(select o.product_id, pt.product_category_name_english, orr.order_status, oi.price, oi.freight_value,
 o.product_name_lenght, o.product_description_lenght, o.product_photos_qty, o.product_weight_g, o.product_length_cm,
 o.product_height_cm, o.product_width_cm 
